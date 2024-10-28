@@ -1,0 +1,14 @@
+﻿
+@model IEnumerable<Wereldeel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Werelddelen</h1>
+<ul>
+    @foreach(var werelddeel in Model)
+    {
+        <li>@werelddeel.Naam</li>
+    }
+</ul>
+

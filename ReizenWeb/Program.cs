@@ -1,10 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using ReizenData.Models;
+using ReizenData.Repositories;
+using ReizenServices;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ReizenContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ReizenConnection")));
+builder.Services.AddTransient<WerelddeelService>();
+builder.Services.AddTransient<IWerelddeelRepository, SQLWerelddeelRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
