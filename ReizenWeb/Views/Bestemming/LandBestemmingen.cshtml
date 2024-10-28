@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Bestemming>
+
+    <ul>
+    @foreach(var bestemming in Model)
+    {
+        <li>@bestemming.Plaats</li>
+    }
+</ul>

@@ -3,7 +3,7 @@
 <ul>
     @foreach(var land in Model)
     {
-        <li>@land.Naam</li>
+        <li><a asp-controller="Bestemming" asp-action="LandBestemmingen" asp-route-id=@land.Id>@land.Naam</a></li>
     }
 </ul>
 
