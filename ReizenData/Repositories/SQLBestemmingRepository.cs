@@ -10,4 +10,7 @@ public class SQLBestemmingRepository : IBestemmingRepository
         this.context = context;
     }
     public async Task<IEnumerable<Bestemming>> GetAllBestemmingenByLandIdAsync(int id) => await context.Bestemmingen.Where(bestemming => bestemming.Landid == id).ToListAsync();
+
+    public async Task<Bestemming?> GetBestemmingByCodeAsync(string code) => await context.Bestemmingen.SingleOrDefaultAsync(w => w.Code == code);
+    
 }

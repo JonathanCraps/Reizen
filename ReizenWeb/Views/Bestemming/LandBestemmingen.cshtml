@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Bestemming>
-
+    <h1>@ViewBag.LandNaam</h1>
+    <img src="~/images/vlaggen/@ViewBag.Url"/>
     <ul>
     @foreach(var bestemming in Model)
     {

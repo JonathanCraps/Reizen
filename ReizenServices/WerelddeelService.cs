@@ -10,4 +10,5 @@ public class WerelddeelService
         this.werelddeelRepository = wereldeelRepository;
     }
     public async Task<IEnumerable<Wereldeel>> GetAllWerelddelenAsync() => await werelddeelRepository.GetAllWerelddelenAsync();
+    public async Task<Wereldeel?> GetWerelddeelByIdAsync(int id) => await werelddeelRepository.GetWerelddeelByIdAsync(id);
 }

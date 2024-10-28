@@ -11,4 +11,5 @@ public class SQLWerelddeelRepository : IWerelddeelRepository
     }
     public async Task<IEnumerable<Wereldeel>> GetAllWerelddelenAsync() => await context.Werelddelen.ToListAsync();
 
+    public async Task<Wereldeel?> GetWerelddeelByIdAsync(int id) => await context.Werelddelen.Where(werelddeel => werelddeel.Id == id).SingleOrDefaultAsync();
 }

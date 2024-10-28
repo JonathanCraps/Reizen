@@ -11,4 +11,7 @@ public class SQLLandRepository : ILandRepository
     }
     public async Task<IEnumerable<Land>> GetAllLandenAsync() => await context.Landen.ToListAsync();
     public async Task<IEnumerable<Land>> GetLandenWithWereldeelIdAsync(int id) => await context.Landen.Where(land => land.Werelddeelid == id).ToListAsync();
+
+    public async Task<Land?> GetLandWithIdAsync(int id) => await context.Landen.Where(land => land.Id == id).SingleOrDefaultAsync();
+    
 }

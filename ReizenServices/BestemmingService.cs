@@ -11,4 +11,5 @@ public class BestemmingService
         this.repository = repository;
     }
     public async Task<IEnumerable<Bestemming>> GetAllBestemmingenByLandIdAsync(int id) => await repository.GetAllBestemmingenByLandIdAsync(id);
+    public async Task<Bestemming?> GetBestemmingByCodeAsync(string code) => await repository.GetBestemmingByCodeAsync(code);
 }

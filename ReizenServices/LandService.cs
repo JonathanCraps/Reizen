@@ -11,4 +11,5 @@ public class LandService
     }
     public async Task<IEnumerable<Land>> GetAllLandenAsync() => await landRepository.GetAllLandenAsync();
     public async Task<IEnumerable<Land>> GetLandenWithWereldeelIdAsync(int id) => await landRepository.GetLandenWithWereldeelIdAsync(id);
+    public async Task<Land?> GetLandWithIdAsync(int id) => await landRepository.GetLandWithIdAsync(id);
 }
