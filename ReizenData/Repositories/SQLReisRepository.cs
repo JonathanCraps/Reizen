@@ -9,5 +9,5 @@ public class SQLReisRepository : IReisRepository
     {
         this.context = context;
     }
-    public async Task<IEnumerable<Reis>> GetReizenByBestemmingCodeAsync(string code) => await context.Reizen.Where(reis => reis.Bestemmingscode == code).ToListAsync();
+    public async Task<IEnumerable<Reis>> GetReizenByBestemmingCodeAsync(string code) => await context.Reizen.Where(reis => reis.Bestemmingscode == code).OrderBy(reis => reis.Vertrek).ToListAsync();
 }

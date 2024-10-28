@@ -17,7 +17,7 @@ public class ReisController : Controller
     [Route("BestemmingReizen")]
     public IActionResult BestemmingReizen(string code)
     {
-        ViewBag.BestemmingNaam = bestemmingService.GetBestemmingByCodeAsync(code).Result.Plaats;
+        ViewBag.BestemmingNaam = bestemmingService.GetBestemmingByCodeAsync(code).Result?.Plaats;
         ViewBag.Url = ViewBag.BestemmingNaam + ".jpg";
         return View(reisService.GetReizenByBestemmingCode(code).Result);
     }

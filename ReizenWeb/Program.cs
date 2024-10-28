@@ -42,3 +42,5 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+//Exception prep voor alles, lees oefening goed, Boekingen
