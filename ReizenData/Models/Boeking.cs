@@ -21,5 +21,5 @@ public partial class Boeking
 
     public virtual Klant Klant { get; set; } = null!;
 
-    public virtual Reiz Reis { get; set; } = null!;
+    public virtual Reis Reis { get; set; } = null!;
 }

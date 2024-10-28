@@ -13,5 +13,5 @@ public partial class Bestemming
 
     public virtual Land Land { get; set; } = null!;
 
-    public virtual ICollection<Reiz> Reizen { get; set; } = new List<Reiz>();
+    public virtual ICollection<Reis> Reizen { get; set; } = new List<Reis>();
 }

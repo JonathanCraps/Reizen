@@ -4,6 +4,7 @@
     <ul>
     @foreach(var bestemming in Model)
     {
-        <li>@bestemming.Plaats</li>
+        <li><a asp-controller="Reis" asp-action="BestemmingReizen" asp-route-code="@bestemming.Code">@bestemming.Plaats</a></li>
     }
+
 </ul>

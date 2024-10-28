@@ -10,9 +10,11 @@ builder.Services.AddDbContext<ReizenContext>(options => options.UseSqlServer(bui
 builder.Services.AddTransient<WerelddeelService>();
 builder.Services.AddTransient<LandService>();
 builder.Services.AddTransient<BestemmingService>();
+builder.Services.AddTransient<ReisService>();
 builder.Services.AddTransient<IWerelddeelRepository, SQLWerelddeelRepository>();
 builder.Services.AddTransient<ILandRepository, SQLLandRepository>();
 builder.Services.AddTransient<IBestemmingRepository, SQLBestemmingRepository>();
+builder.Services.AddTransient<IReisRepository, SQLReisRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -29,6 +31,11 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.MapControllerRoute(
+name: "BestemmingReizen",
+pattern: "Reis/BestemmingReizen/{code:alpha:maxlength(5)}",
+defaults: new { controller = "Reis", action = "BestemmingReizen" });
+
 
 app.MapControllerRoute(
     name: "default",

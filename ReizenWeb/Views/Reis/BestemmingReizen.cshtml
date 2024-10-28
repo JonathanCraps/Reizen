@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Reis>
+@{
+    ViewData["Title"] = "BestemmingReizen";
+}
+
+<h1>@ViewBag.BestemmingNaam</h1>
+<img src="~/images/bestemmingen/@ViewBag.Url"/>
+<table class="table table-striped justify-content-center align-content-center">
+    <thead>
+    <th>Vertrek</th>
+    <th>Prijs per persoon</th>
+    <th>Aantal Dagen</th>
+    <th>Boeken</th>
+</thead>
+
+@foreach(var reis in Model)
+{
+    <tr>
+        <td>@reis.Vertrek</td>
+        <td>@reis.PrijsPerPersoon</td>
+        <td>@reis.AantalDagen</td>
+        <td>
+                @if (reis.Vertrek.CompareTo(DateOnly.FromDateTime(DateTime.Now)) > 0){
+                    <a href="">Boeken</a>
+                }
+                else{
+                
+                <s>Boeken</s>
+                }
+            </td>
+    </tr>
+}
+</table>

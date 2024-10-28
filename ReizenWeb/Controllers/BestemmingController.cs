@@ -24,4 +24,4 @@ public class BestemmingController : Controller
         ViewBag.Url = ViewBag.LandNaam + ".png";
         return View(bestemmingService.GetAllBestemmingenByLandIdAsync(id).Result);
     }
-}//Maak single return functies voor alle services om naam te tonen
+}

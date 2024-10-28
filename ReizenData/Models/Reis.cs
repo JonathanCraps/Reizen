@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ReizenData.Models;
 
-public partial class Reiz
+public partial class Reis
 {
     public int Id { get; set; }
 

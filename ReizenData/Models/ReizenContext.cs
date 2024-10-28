@@ -23,7 +23,7 @@ public partial class ReizenContext : DbContext
 
     public virtual DbSet<Land> Landen { get; set; }
 
-    public virtual DbSet<Reiz> Reizen { get; set; }
+    public virtual DbSet<Reis> Reizen { get; set; }
 
     public virtual DbSet<Wereldeel> Werelddelen { get; set; }
 
@@ -130,7 +130,7 @@ public partial class ReizenContext : DbContext
                 .HasConstraintName("landen_werelddelen");
         });
 
-        modelBuilder.Entity<Reiz>(entity =>
+        modelBuilder.Entity<Reis>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__reizen__3213E83FA3AC8331");
 
