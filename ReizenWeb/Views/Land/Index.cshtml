@@ -1,0 +1,12 @@
+﻿
+@model IEnumerable<Land>
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Alle landen</h1>
+<ul>
+@foreach(var land in Model)
+{
+        <li>@land.Naam</li>
+}
+</ul>

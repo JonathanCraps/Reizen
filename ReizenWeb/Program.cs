@@ -8,7 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ReizenContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ReizenConnection")));
 builder.Services.AddTransient<WerelddeelService>();
+builder.Services.AddTransient<LandService>();
 builder.Services.AddTransient<IWerelddeelRepository, SQLWerelddeelRepository>();
+builder.Services.AddTransient<ILandRepository, SQLLandRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
