@@ -1,26 +1,23 @@
-﻿@model Reis
+﻿@model KlantByStringSearchViewModel
 @{
     ViewData["Title"] = "KlantZoeken";
 }
 <h1>Zoeken</h1>
 
 <b>Bestemming</b>
-<p>@Model.Bestemmingscode </p>
+<p>@ViewBag.Bestemming </p>
 <b>Vertrek</b>
-<p>@Model.Vertrek </p>
+<p>@ViewBag.Vertrek </p>
 <b>Aantal Dagen</b>
-<p>@Model.AantalDagen </p>
+<p>@ViewBag.AantalDagen </p>
 <b>Prijs Per Persoon</b>
-<p>@Model.PrijsPerPersoon </p>
+<p>@ViewBag.PrijsPerPersoon </p>
 <label>Familienaam bevat:</label>
-<form method="get" asp-action="TabelKlanten">
-    <input type="submit" asp/>
-    <button type="submit">Zoeken</button>
-</form>
 
+<input type="text" name="familienaam" asp-for="Input"/>
+<button type="submit" asp-action="KlantZoekenVanReis" asp-route-id="@ViewBag.ReisId">Zoeken</button>
 
-@* @await Component.InvokeAsync("KlantByStringSearchViewModel", "van"); *@
-
+@await Component.InvokeAsync("KlantByStringSearchViewModel", Model.Input);
 
 
 

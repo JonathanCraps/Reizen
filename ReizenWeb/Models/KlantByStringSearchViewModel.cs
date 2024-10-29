@@ -6,13 +6,13 @@ namespace ReizenWeb.Models;
 public class KlantByStringSearchViewModel : ViewComponent
 {
     private readonly KlantService klantService;
-    public string Input {  get; set; }
+    public string Input {  get; set; } = string.Empty;
     public List<Klant> Klanten { get; set; } = new();
 
-    public KlantByStringSearchViewModel(KlantService klantService, string input)
+    public KlantByStringSearchViewModel(KlantService klantService)
     {
         this.klantService = klantService;
-        this.Input = input;
+        
     }
     public IViewComponentResult Invoke()
     {
