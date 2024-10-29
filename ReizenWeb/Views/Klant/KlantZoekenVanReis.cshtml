@@ -1,0 +1,27 @@
+﻿@model Reis
+@{
+    ViewData["Title"] = "KlantZoeken";
+}
+<h1>Zoeken</h1>
+
+<b>Bestemming</b>
+<p>@Model.Bestemmingscode </p>
+<b>Vertrek</b>
+<p>@Model.Vertrek </p>
+<b>Aantal Dagen</b>
+<p>@Model.AantalDagen </p>
+<b>Prijs Per Persoon</b>
+<p>@Model.PrijsPerPersoon </p>
+<label>Familienaam bevat:</label>
+<form method="get" asp-action="TabelKlanten">
+    <input type="submit" asp/>
+    <button type="submit">Zoeken</button>
+</form>
+
+
+@* @await Component.InvokeAsync("KlantByStringSearchViewModel", "van"); *@
+
+
+
+
+

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Klant>
+@if(Model != null && Model.Count() > 0)
+{
+    <table class="table table-bordered table-striped justify-content-center align-content-center">
+        <thead>
+            <tr>
+                <th>FamilieNaam</th>
+                <th>Voornaam</th>
+                <th>Adres</th>
+                <th>Postcode</th>
+                <th>Woonplaats</th>
+                <th>Boeken</th>
+            </tr>
+            @foreach(var klant in Model)
+            {
+                <tr>
+                    <td>@klant.Familienaam</td>
+                    <td>@klant.Voornaam</td>
+                    <td>@klant.Adres</td>
+                    @* <td>@klant.Woonplaats.Postcode</td>
+                    <td>@klant.Woonplaats.Naam</td> *@
+                    <td><a href="">Boeken</a></td>
+                </tr>
+            }
+        </thead>
+    </table>
+}

@@ -11,10 +11,12 @@ builder.Services.AddTransient<WerelddeelService>();
 builder.Services.AddTransient<LandService>();
 builder.Services.AddTransient<BestemmingService>();
 builder.Services.AddTransient<ReisService>();
+builder.Services.AddTransient<KlantService>();
 builder.Services.AddTransient<IWerelddeelRepository, SQLWerelddeelRepository>();
 builder.Services.AddTransient<ILandRepository, SQLLandRepository>();
 builder.Services.AddTransient<IBestemmingRepository, SQLBestemmingRepository>();
 builder.Services.AddTransient<IReisRepository, SQLReisRepository>();
+builder.Services.AddTransient<IKlantRepository, SQLKlantRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

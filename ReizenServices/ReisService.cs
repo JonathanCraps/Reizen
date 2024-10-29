@@ -9,4 +9,5 @@ public class ReisService
         this.repository = repository;
     }
     public async Task<IEnumerable<Reis>> GetReizenByBestemmingCode(string code) => await repository.GetReizenByBestemmingCodeAsync(code);
+    public async Task<Reis?> GetReisByIdAsync(int id) => await repository.GetReisByIdAsync(id);
 }

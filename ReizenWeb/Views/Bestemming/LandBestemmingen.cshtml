@@ -1,12 +1,13 @@
 ﻿@model IEnumerable<Bestemming>
-    <h1>@ViewBag.LandNaam</h1>
-    <img src="~/images/vlaggen/@ViewBag.Url"/>
-    @if(Model != null && Model.Count() > 0){
+<h1>@ViewBag.LandNaam</h1>
+<img src="~/images/vlaggen/@ViewBag.Url" alt="@ViewBag.LandNaam" sp-append-version="true" />
+@if (Model != null && Model.Count() > 0)
+{
     <ul>
-    @foreach(var bestemming in Model)
-    {
-        <li><a asp-controller="Reis" asp-action="BestemmingReizen" asp-route-code="@bestemming.Code">@bestemming.Plaats</a></li>
-    }
+        @foreach (var bestemming in Model)
+        {
+            <li><a asp-controller="Reis" asp-action="BestemmingReizen" asp-route-code="@bestemming.Code">@bestemming.Plaats</a></li>
+        }
 
     </ul>
 }
