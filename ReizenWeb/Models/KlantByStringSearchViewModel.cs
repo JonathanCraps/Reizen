@@ -14,9 +14,9 @@ public class KlantByStringSearchViewModel : ViewComponent
         this.klantService = klantService;
         
     }
-    public IViewComponentResult Invoke()
+    public async Task<IViewComponentResult> Invoke()
     {
-        Klanten = (List<Klant>)klantService.GetAllKlantenContainingStringAsync(Input).Result;
+        Klanten = (List<Klant>) await klantService.GetAllKlantenContainingStringAsync(Input);
         return View(Klanten);
     }
 }

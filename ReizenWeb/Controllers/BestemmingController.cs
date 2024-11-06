@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReizenServices;
+using ReizenData.Models;
 
 namespace ReizenWeb.Controllers;
 public class BestemmingController : Controller
@@ -18,10 +19,11 @@ public class BestemmingController : Controller
     {
         return View();
     }
-    public IActionResult LandBestemmingen(int id)
+    public async Task<IActionResult> LandBestemmingen(int id)
     {
-        ViewBag.LandNaam = landService.GetLandWithIdAsync(id).Result.Naam;
-        ViewBag.Url = ViewBag.LandNaam + ".png";
-        return View(bestemmingService.GetAllBestemmingenByLandIdAsync(id).Result);
+        Land nieuwLand = await landService.GetLandWithIdAsync(id) is Land land ? land : new Land();
+        ViewBag.LandNaam = nieuwLand.Naam;
+        ViewBag.Url = nieuwLand.Naam + ".png";
+        return View(await bestemmingService.GetAllBestemmingenByLandIdAsync(id));
     }
 }

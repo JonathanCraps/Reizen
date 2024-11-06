@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReizenServices;
+using ReizenData.Models;
 
 namespace ReizenWeb.Controllers;
 public class LandController : Controller
@@ -14,13 +15,12 @@ public class LandController : Controller
         this.landservice = landservice;
         this.werelddeelService = werelddeelService;
     }
-    public IActionResult Index()
+    public async Task<IActionResult> Index() => View(await landservice.GetAllLandenAsync());
+    
+    public async Task<IActionResult> WerelddeelLanden(int id)
     {
-        return View(landservice.GetAllLandenAsync().Result);
-    }
-    public IActionResult WerelddeelLanden(int id)
-    {
-        ViewBag.WerelddeelNaam = werelddeelService.GetWerelddeelByIdAsync(id).Result.Naam;
-        return View(landservice.GetLandenWithWereldeelIdAsync(id).Result);
+        Wereldeel nieuwWereldDeel = await werelddeelService.GetWerelddeelByIdAsync(id) is Wereldeel wereldDeel ? wereldDeel : new Wereldeel();
+        ViewBag.WerelddeelNaam = nieuwWereldDeel.Naam;
+        return View(await landservice.GetLandenWithWereldeelIdAsync(id));
     }
 }

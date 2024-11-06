@@ -23,11 +23,12 @@ public class KlantController : Controller
         return RedirectToAction("KlantZoekenVanReis", "Klant", new { reisId = 3 });
     }
 
-    public IActionResult KlantZoekenVanReis(int reisId)
+    public async Task<IActionResult> KlantZoekenVanReis(int reisId)
     {
-        Reis gekozenReis = reisService.GetReisByIdAsync(reisId).Result! as Reis;
+        Reis gekozenReis = await reisService.GetReisByIdAsync(reisId) is Reis reis ? reis : new Reis();
         ViewBag.ReisId = reisId;
-        ViewBag.Bestemming = bestemmingService.GetBestemmingByCodeAsync(gekozenReis.Bestemmingscode).Result;
+        Bestemming nieuweBestemming = await bestemmingService.GetBestemmingByCodeAsync(gekozenReis.Bestemmingscode) is Bestemming bestemming ? bestemming : new Bestemming();
+        ViewBag.Bestemming = nieuweBestemming.Code;
         ViewBag.Vertrek = gekozenReis.Vertrek;
         ViewBag.AantalDagen = gekozenReis.AantalDagen;
         ViewBag.PrijsPerPersoon = gekozenReis.PrijsPerPersoon;

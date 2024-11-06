@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReizenServices;
+using ReizenData.Models;
 namespace ReizenWeb.Controllers;
 public class ReisController : Controller
 {
@@ -15,10 +16,11 @@ public class ReisController : Controller
         return View();
     }
     [Route("BestemmingReizen")]
-    public IActionResult BestemmingReizen(string code)
+    public async Task<IActionResult> BestemmingReizen(string code)
     {
-        ViewBag.BestemmingNaam = bestemmingService.GetBestemmingByCodeAsync(code).Result?.Plaats;
-        ViewBag.Url = ViewBag.BestemmingNaam + ".jpg";
+        Bestemming gekozenBestemming = await bestemmingService.GetBestemmingByCodeAsync(code) is Bestemming bestemming ? bestemming: new Bestemming();
+        ViewBag.BestemmingNaam = gekozenBestemming.Plaats;
+        ViewBag.Url = gekozenBestemming.Plaats + ".jpg";
         return View(reisService.GetReizenByBestemmingCode(code).Result);
     }
 }

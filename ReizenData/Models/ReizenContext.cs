@@ -29,8 +29,6 @@ public partial class ReizenContext : DbContext
 
     public virtual DbSet<Woonplaats> Woonplaatsen { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=.\\sqlexpress2022;Database=reizen;Trusted_Connection=true;TrustServerCertificate=true;MultipleActiveResultSets=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

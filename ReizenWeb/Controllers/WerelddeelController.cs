@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReizenServices;
-using ReizenWeb.Models;
 
 namespace ReizenWeb.Controllers;
 public class WerelddeelController : Controller
@@ -14,8 +13,8 @@ public class WerelddeelController : Controller
         this.werelddeelService = werelddeelService;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View(werelddeelService.GetAllWerelddelenAsync().Result);
+        return View( await werelddeelService.GetAllWerelddelenAsync());
     }
 }
